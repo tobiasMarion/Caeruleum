@@ -13,37 +13,30 @@ Statement   := Assertion of Proposition
 Literal     := String | Number
 ```
 
+These are names used in this specification, not reserved language identifiers.
+
 - A node represents something that can be referenced independently.
-- A relation is a node used to connect a subject to a value.
-- A proposition describes that connection.
+- A relation is any node used in the relation position.
+- A proposition connects a subject, a relation and a value.
 - A statement records an assertion of a proposition. It has its own identity.
-- A literal has no identity. The initial literal types are strings and numbers.
+- A literal has no identity. The initial literal kinds are strings and numbers.
 
 Two sources may assert the same proposition. Their statements remain distinct to preserve provenance.
+Statements about statements use the same mechanism as all other knowledge.
 
-## Open knowledge
+## Semantic neutrality
 
-Missing knowledge is unknown. It is not false.
+Core stores structure and identity. It assigns no domain meaning to relation names.
+No vocabulary is imported implicitly.
+A node named `polarity`, `classType` or `name` has no special Core behavior.
 
-An entity may have several types and several values for a relation.
-Conflicting statements are preserved. The system reports the conflict without silently choosing a truth.
+Core does not infer truth, negation, possibility, inheritance or group membership.
+It preserves supplied statements, including statements a vocabulary may interpret as conflicting.
+An omitted statement supplies no information.
 
-## One mechanism
-
-Types, relations, groups and assets are nodes.
-Knowledge about them is expressed through statements.
-This lets tools query the vocabulary with the same operations used for the rest of the graph.
+[Libraries](libraries.md) define vocabularies. Semantic adapters implement their interpretation in tools.
+The typing adapter can report a mismatch. An assertion adapter can interpret a negative claim.
+Neither changes the parser or the structural model.
 
 Names, imports and screen coordinates belong to storage or tooling.
 They do not assert domain facts.
-
-## Qualification
-
-Modality, polarity, confidence and source qualify a statement.
-They are statements about that entity. The underlying relation keeps its name.
-
-An unqualified statement is an ordinary positive assertion.
-Missing confidence is unknown; it does not mean `1`.
-
-A statement marked as possible or negative must not be consumed as a confirmed positive fact.
-Queries and inference must preserve this distinction.

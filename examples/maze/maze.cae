@@ -1,39 +1,42 @@
-import { Room, page_number, leads_to, preferred_exit } from "./vocabulary"
-import * as sources from "./sources"
+import { instanceOf } from '../../std/types'
+import { group, member, name } from '../../std/organization'
+import { source, modality, possible } from '../../std/annotations'
+import { room, pageNumber, leadsTo, preferredExit } from './vocabulary'
+import * as sources from './sources'
 
-room_1: Room
-    name = "Room 1"
-    page_number = 1
-    leads_to = room_20
-        source = sources.room_1_page
-    leads_to = room_21
-        source = sources.room_1_page
-    @exit_to_26: leads_to = room_26
-        source = sources.room_1_page
-    leads_to = room_41
-        source = sources.room_1_page
-    @candidate_exit: preferred_exit = room_26
+room1: room
+    name = 'Room 1'
+    pageNumber = 1
+    leadsTo = room20
+        source = sources.room1Page
+    leadsTo = room21
+        source = sources.room1Page
+    @exitTo26: leadsTo = room26
+        source = sources.room1Page
+    leadsTo = room41
+        source = sources.room1Page
+    @candidateExit: preferredExit = room26
         modality = possible
-        source = sources.room_1_interpretation
+        source = sources.room1Interpretation
 
-room_20: Room
-    name = "Room 20"
-    page_number = 20
+room20: room
+    name = 'Room 20'
+    pageNumber = 20
 
-room_21: Room
-    name = "Room 21"
-    page_number = 21
+room21: room
+    name = 'Room 21'
+    pageNumber = 21
 
-room_26: Room
-    name = "Room 26"
-    page_number = 26
+room26: room
+    name = 'Room 26'
+    pageNumber = 26
 
-room_41: Room
-    name = "Room 41"
-    page_number = 41
+room41: room
+    name = 'Room 41'
+    pageNumber = 41
 
-entrance_investigation: Group
-    name = "Investigating the entrance"
-    member = room_1
-    member = @exit_to_26
-    member = @candidate_exit
+entranceInvestigation: group
+    name = 'Investigating the entrance'
+    member = room1
+    member = @exitTo26
+    member = @candidateExit

@@ -2,7 +2,8 @@
 
 [Manual](../README.md)
 
-Text, MCP and canvas use the same name resolution, typing and validation.
+Text, MCP and canvas share name resolution and structural validation.
+They use the same explicitly selected semantic adapters for typing and interpretation.
 This prevents results from depending on the interface used.
 
 ## Operations
@@ -28,7 +29,7 @@ A revision mismatch requires reconciliation; it does not allow a silent overwrit
 ## Diagnostics and suggestions
 
 Unknown names and invalid syntax prevent the affected transaction from being applied.
-Type mismatches produce warnings, as defined in [types](types.md).
+With the standard typing adapter enabled, type mismatches produce warnings as defined in [types](types.md).
 An invalid text draft may remain in the editor without changing the active graph.
 
 The suggestion service accepts a subject, partial relation or expected value type.
@@ -36,6 +37,8 @@ It returns candidates, compatibility and explanations.
 The LSP, MCP and canvas connection picker consume this service.
 
 ## Knowledge review
+
+Review is an application workflow. Core has no approval states.
 
 AI proposals must preserve their source when available.
 Approval requirements depend on the capture workflow, not on the use of MCP.
@@ -46,6 +49,7 @@ Storage for this workflow must be defined before automated ingestion.
 ## Stable writing
 
 The formatter preserves order, comments, names and IDs.
+It normalizes indentation and quote style as defined in [syntax](syntax.md).
 It does not sort the entire graph after each edit, because that creates diffs without changes in knowledge.
 Textual order does not imply semantic order.
 Action sequences will require an explicit representation in a later version.

@@ -1,0 +1,29 @@
+export instanceOf
+export subclassOf
+export domain
+export range
+
+export classType
+    instanceOf = classType
+
+export relationType
+    instanceOf = classType
+
+export stringType
+export numberType
+
+instanceOf
+    instanceOf = relationType
+
+subclassOf
+    instanceOf = relationType
+    domain = classType
+    range = classType
+
+domain
+    instanceOf = relationType
+    domain = relationType
+
+range
+    instanceOf = relationType
+    domain = relationType

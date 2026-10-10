@@ -1,9 +1,11 @@
-import { url } from "./vocabulary"
+import { instanceOf } from '../../std/types'
+import { document, name } from '../../std/organization'
+import { url } from './vocabulary'
 
-export room_1_page: Document
-    name = "MAZE — Room 1 transcription"
-    url = "https://mazecast.wikidot.com/room-1"
+export room1Page: document
+    name = 'MAZE — Room 1 transcription'
+    url = 'https://mazecast.wikidot.com/room-1'
 
-export room_1_interpretation: Document
-    name = "Mazecast — Room 1 solution commentary"
-    url = "https://mazecast.wikidot.com/room-1"
+export room1Interpretation: document
+    name = 'Mazecast — Room 1 solution commentary'
+    url = 'https://mazecast.wikidot.com/room-1'

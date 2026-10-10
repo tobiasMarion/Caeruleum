@@ -1,20 +1,23 @@
-export Place: Class
+import { instanceOf, classType, relationType, numberType, stringType, subclassOf, domain, range } from '../../std/types'
+import { document } from '../../std/organization'
 
-export Room: Class
-    subclass_of = Place
+export place: classType
 
-export page_number: Relation
-    domain = Room
-    range = Number
+export room: classType
+    subclassOf = place
 
-export leads_to: Relation
-    domain = Place
-    range = Place
+export pageNumber: relationType
+    domain = room
+    range = numberType
 
-export preferred_exit: Relation
-    domain = Room
-    range = Room
+export leadsTo: relationType
+    domain = place
+    range = place
 
-export url: Relation
-    domain = Document
-    range = String
+export preferredExit: relationType
+    domain = room
+    range = room
+
+export url: relationType
+    domain = document
+    range = stringType

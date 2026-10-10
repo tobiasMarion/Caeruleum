@@ -7,14 +7,16 @@ This manual describes the proposed direction. It does not document implemented f
 ## 1. Validate persistence
 
 Define the versioned representation of IDs and their association with declarations.
-Cover nodes, type assertions and metadata, including unnamed occurrences.
+Cover nodes, library exports, type assertions and metadata, including unnamed occurrences.
 Test renaming, moving between files, copying and merge conflicts.
 This decision precedes the parser because it determines whether editing preserves identity.
 
-## 2. Implement the typed core
+## 2. Implement Core and library adapters
 
 Deliver the parser, module resolution, lowering, formatter and diagnostics.
-Implement classification, inheritance, domains and ranges.
+Implement classification, inheritance, domains and ranges in the typing adapter.
+Implement annotation and organization adapters separately from Core.
+Define adapter selection and versioned library identities; never dispatch on name spelling.
 Validate forward references, multiple types and incomplete knowledge.
 
 ## 3. Deliver autocomplete

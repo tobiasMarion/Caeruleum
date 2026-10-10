@@ -14,15 +14,19 @@ It covers Room 1 and its four destinations. It includes a proposed first move, s
 Read `maze.cae` first. Follow its imports to inspect the structure behind the knowledge.
 These files use the proposed authoring syntax. No parser or autocomplete implementation exists yet, and persistent ID syntax remains undecided.
 
+The example explicitly imports the [standard library](../../docs/libraries.md).
+The behaviors below require its typing, annotations and organization adapters.
+Core itself assigns no meaning to these imported names.
+
 ## Reading the graph
 
 Room 1 has exits to Rooms 20, 21, 26 and 41, as listed in the [Room 1 transcription](https://mazecast.wikidot.com/room-1).
 Each exit statement references that source.
 
-`leads_to` records a directed connection. It does not imply a return connection or a recommended move.
+`leadsTo` records a directed connection. It does not imply a return connection or a recommended move.
 The other four rooms have no recorded exits in this example. Their exits are unknown here, not absent in the book.
 
-`preferred_exit` records an interpretation. The [community solution commentary](https://mazecast.wikidot.com/room-1) selects Room 26.
+`preferredExit` records an interpretation. The [community solution commentary](https://mazecast.wikidot.com/room-1) selects Room 26.
 This base deliberately keeps that recommendation qualified as `possible`: a reader has captured the interpretation without accepting it as settled.
 The source reports a solution; the uncertainty belongs to this example's investigation.
 
@@ -33,10 +37,10 @@ The investigation group includes a room and two statements, because an investiga
 
 | Cursor position | Expected behavior |
 | --- | --- |
-| Inside `room_1` | Suggest `page_number`, `leads_to` and `preferred_exit`. |
-| After `leads_to =` | Prioritize the five rooms: `Room` inherits from `Place`. |
-| After `page_number =` | Expect a number. |
-| After `sources.` | List `room_1_page` and `room_1_interpretation`. |
+| Inside `room1` | Suggest `pageNumber`, `leadsTo` and `preferredExit`. |
+| After `leadsTo =` | Prioritize the five rooms: `room` inherits from `place`. |
+| After `pageNumber =` | Expect a number. |
+| After `sources.` | List `room1Page` and `room1Interpretation`. |
 
 These are expected behaviors, not executable editor demonstrations.
 Compatibility alone does not prove a connection exists. A room can be a valid suggestion without being an actual destination.

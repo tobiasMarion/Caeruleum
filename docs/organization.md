@@ -2,13 +2,16 @@
 
 [Manual](../README.md)
 
+The following meanings require the standard organization adapter.
+Examples assume explicit imports from `std/organization` and `std/types`.
+
 ## Groups
 
 ```cae
-discovery: Group
-    member = watering_can
+discovery: group
+    member = wateringCan
     member = screenshot
-    member = @possible_open
+    member = @possibleOpen
 ```
 
 A group is a node with membership relations.
@@ -19,8 +22,8 @@ This allows knowledge to be reorganized without renaming it.
 ## Assets
 
 ```cae
-screenshot: Image
-    resource = "assets/screenshot.png"
+screenshot: image
+    resource = 'assets/screenshot.png'
 ```
 
 An asset is a node that references an external file.
@@ -28,7 +31,7 @@ An asset is a node that references an external file.
 Moving the declaration requires adjusting the path to preserve the resource reference.
 Binary content stays outside the graph.
 
-`Group`, `member`, `Image`, `Document`, `resource` and `name` belong to the Core vocabulary.
+`group`, `member`, `image`, `document`, `resource` and `name` belong to the organization library.
 `member` accepts any entity. `resource` and `name` accept strings.
 
 ## Layouts

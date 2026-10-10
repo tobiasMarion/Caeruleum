@@ -7,8 +7,8 @@
 | Concept | Purpose |
 | --- | --- |
 | Persistent ID | Internal references, MCP, provenance and layouts. |
-| Local name, such as `watering_can` | Writing and name resolution within a module. |
-| Label, such as `name = "Watering can"` | Presentation to the user. |
+| Local name, such as `wateringCan` | Writing and name resolution within a module. |
+| Label, such as `name = 'Watering can'` | Presentation through the organization adapter. |
 
 Local names are unique within a module. Labels may repeat.
 Node and statement IDs are opaque, stable and stored in versioned data.
@@ -28,20 +28,22 @@ Each file defines a module. Exports expose names; imports make references availa
 
 ```cae
 // rooms.cae
-export greenhouse: Room
+import { instanceOf } from '../std/types'
+export greenhouse: room
 ```
 
 ```cae
 // items.cae
-import { Item, found_in } from "./vocabulary"
-import * as rooms from "./rooms"
+import { instanceOf } from '../std/types'
+import { item, foundIn } from './vocabulary'
+import * as rooms from './rooms'
 
-watering_can: Item
-    found_in = rooms.greenhouse
+wateringCan: item
+    foundIn = rooms.greenhouse
 ```
 
-The first file must also import or declare `Room`.
-Named imports support aliases: `import { greenhouse as room } from "./rooms"`.
+The first file must also import or declare `room`.
+Named imports support aliases: `import { greenhouse as room } from './rooms'`.
 
 `rooms.` completes module exports. It does not traverse graph relations.
 Groups and visual positions do not create namespaces, because they are mutable forms of organization.

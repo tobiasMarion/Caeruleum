@@ -1,0 +1,16 @@
+import { instanceOf, classType, relationType, stringType, domain, range } from './types'
+
+export group: classType
+export document: classType
+export image: classType
+
+export member: relationType
+    domain = group
+
+export name: relationType
+    range = stringType
+
+export resource: relationType
+    domain = document
+    domain = image
+    range = stringType

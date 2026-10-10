@@ -1,0 +1,11 @@
+import { instanceOf, relationType, numberType, range } from './types'
+
+export source: relationType
+export modality: relationType
+export polarity: relationType
+
+export confidence: relationType
+    range = numberType
+
+export possible
+export negative
