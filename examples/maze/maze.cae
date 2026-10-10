@@ -1,0 +1,39 @@
+import { Room, page_number, leads_to, preferred_exit } from "./vocabulary"
+import * as sources from "./sources"
+
+room_1: Room
+    name = "Room 1"
+    page_number = 1
+    leads_to = room_20
+        source = sources.room_1_page
+    leads_to = room_21
+        source = sources.room_1_page
+    @exit_to_26: leads_to = room_26
+        source = sources.room_1_page
+    leads_to = room_41
+        source = sources.room_1_page
+    @candidate_exit: preferred_exit = room_26
+        modality = possible
+        source = sources.room_1_interpretation
+
+room_20: Room
+    name = "Room 20"
+    page_number = 20
+
+room_21: Room
+    name = "Room 21"
+    page_number = 21
+
+room_26: Room
+    name = "Room 26"
+    page_number = 26
+
+room_41: Room
+    name = "Room 41"
+    page_number = 41
+
+entrance_investigation: Group
+    name = "Investigating the entrance"
+    member = room_1
+    member = @exit_to_26
+    member = @candidate_exit

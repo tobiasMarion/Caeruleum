@@ -1,0 +1,20 @@
+export Place: Class
+
+export Room: Class
+    subclass_of = Place
+
+export page_number: Relation
+    domain = Room
+    range = Number
+
+export leads_to: Relation
+    domain = Place
+    range = Place
+
+export preferred_exit: Relation
+    domain = Room
+    range = Room
+
+export url: Relation
+    domain = Document
+    range = String

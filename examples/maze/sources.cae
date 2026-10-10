@@ -1,0 +1,9 @@
+import { url } from "./vocabulary"
+
+export room_1_page: Document
+    name = "MAZE — Room 1 transcription"
+    url = "https://mazecast.wikidot.com/room-1"
+
+export room_1_interpretation: Document
+    name = "Mazecast — Room 1 solution commentary"
+    url = "https://mazecast.wikidot.com/room-1"
